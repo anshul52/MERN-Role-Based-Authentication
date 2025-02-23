@@ -156,19 +156,16 @@ const refreshToken = async (req, res) => {
 };
 
 const logout = async (req, res) => {
-  // res.clearCookie("jwt", {
-  //   httpOnly: true,
-  //   secure: process.env.NODE_ENV === "production",
-  // });
   const { userId } = req.body;
 
   if (userId) {
     await redisClient.del(`refreshToken:${userId}`);
   }
-  res.clearCookie("refreshToken", {
+  res.clearCookie("jwt", {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
   });
+
   return res.json({ status: true, message: "Logout successful" });
 };
 
