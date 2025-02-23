@@ -47,3 +47,8 @@ npm run dev
 ## **POSTMAN COLLECTION**
 
 I have added postman collection in folder [ postman collection ] in .json format , YOU can use for api testing
+
+## **Desclaimer**
+
+→ Please use that number in api body which is already verifyed by twilio account
+→ If by chance your twilio credential doesnot work . So I have added a console so you can check OTP from terminal and continue testing
