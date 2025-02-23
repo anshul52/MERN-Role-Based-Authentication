@@ -15,10 +15,35 @@ This project implements **role-based authentication** in a **MERN stack** applic
 ✅ **JWT-based authentication** stored in **HTTP-only cookies**  
 ✅ **Refresh tokens** for session persistence  
 ✅ **Role-Based Access Control (RBAC)** → Admins manage users; regular users access general content  
-✅ **PostgreSQL** for user data (via Sequelize/Prisma ORM)  
+✅ **PostgreSQL** for user data (via Sequelize)  
 ✅ **Redis** for session management & OTP storage  
 ✅ **Security Enhancements**: Secure cookies, rate limiting, bcrypt password hashing
 
 ---
 
-## **📂 Project Structure**
+## **📂 Installation & Setup**
+
+### **1️⃣ Clone the Repository**
+
+git clone https://github.com/anshul52/MERN-Role-Based-Authentication
+cd backend
+
+### **2️⃣ Install Dependencies**
+
+npm install
+
+### **3️⃣ Configure Environment Variables**
+
+Create a .env file and add all the filed present in .env.example
+
+### **4️⃣ Run Backend Server**
+
+npm run dev
+
+## Server runs at http://localhost:5000
+
+---
+
+## **POSTMAN COLLECTION**
+
+I have added postman collection in folder [ postman collection ] in .json format , YOU can use for api testing

@@ -12,6 +12,11 @@ const register = async (req, res) => {
         .status(400)
         .json({ status: false, message: "All fields are required." });
     }
+    if (phone.length !== 10) {
+      return res
+        .status(400)
+        .json({ status: false, message: "Phone number should be 10 digits." });
+    }
     const existingUser = await User.findOne({ where: { phone } });
     if (existingUser)
       return res.status(400).json({
@@ -47,6 +52,21 @@ const register = async (req, res) => {
 const verifyOTP = async (req, res) => {
   try {
     const { phone, otp } = req.body;
+    if (!phone || !otp) {
+      return res
+        .status(400)
+        .json({ status: false, message: "All fields are required." });
+    }
+    if (phone.length !== 10) {
+      return res
+        .status(400)
+        .json({ status: false, message: "Phone number should be 10 digits." });
+    }
+    if (otp.length !== 6) {
+      return res
+        .status(400)
+        .json({ status: false, message: "OTP should be 6 digits." });
+    }
     const storedOTP = await redisClient.get(`otp:${phone}`);
 
     if (storedOTP !== otp)
@@ -66,11 +86,17 @@ const verifyOTP = async (req, res) => {
 const login = async (req, res) => {
   try {
     const { phone, password } = req.body;
+    if (!phone || !password) {
+      return res
+        .status(400)
+        .json({ status: false, message: "All fields are required." });
+    }
+    if (phone.length !== 10) {
+      return res
+        .status(400)
+        .json({ status: false, message: "Phone number should be 10 digits." });
+    }
     const user = await User.findOne({ where: { phone } });
-    console.log(
-      "process.env.REFRESH_TOKEN_SECRET--",
-      process.env.REFRESH_TOKEN_SECRET
-    );
 
     if (!user || !user.verified)
       return res
