@@ -26,6 +26,7 @@ This project implements **role-based authentication** in a **MERN stack** applic
 ### **1️⃣ Clone the Repository**
 
 git clone https://github.com/anshul52/MERN-Role-Based-Authentication
+
 cd backend
 
 ### **2️⃣ Install Dependencies**
@@ -51,4 +52,5 @@ I have added postman collection in folder [ postman collection ] in .json format
 ## **Desclaimer**
 
 → Please use that number in api body which is already verifyed by twilio account
+
 → If by chance your twilio credential doesnot work . So I have added a console so you can check OTP from terminal and continue testing
